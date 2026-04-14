@@ -13,18 +13,26 @@ const expenseEntries = [
   ["subscriptions", 12],
 ];
 
+//loop para o ponteiro percorrer o array e descobrir o valor total das despesas
+
 for (let i = 0; i < expenseEntries.length; i++) {
   totalExpensesValue += expenseEntries[i][1];
 }
+
+// Função calculadora média de gastos
 
 function calculateAverageExpense() {
   if (expenseEntries.length === 0) return 0;
   return totalExpensesValue / expenseEntries.length;
 }
 
+// Função calculadora de saldo da conta
+
 function calculateBalance() {
   return budgetValue - totalExpensesValue;
 }
+
+//Função atribuidora de cor de acordo ao saldo
 
 function updateBalanceColor() {
   const balance = calculateBalance();
@@ -37,6 +45,8 @@ function updateBalanceColor() {
   }
 }
 
+//Função calculadora de gastos por categoria
+
 function calculateCategoryExpenses(category) {
   let total = 0;
   for (let i = 0; i < expenseEntries.length; i++) {
@@ -46,6 +56,8 @@ function calculateCategoryExpenses(category) {
   }
   return total;
 }
+
+//Função calculadora da categoria com maior gasto a partir da função (calculateCategoryExpenses)
 
 function calculateLargestCategory() {
   const categories = [
@@ -76,12 +88,9 @@ function calculateLargestCategory() {
   return largestCategory;
 }
 
+//Função para adição de novas entradas
+
 function addExpenseEntry(values) {
   expenseEntries.push(values);
   totalExpensesValue += values[1];
 }
-
-console.log(budgetValue);
-console.log(totalExpensesValue);
-console.log(balanceColor);
-console.log(expenseEntries);
